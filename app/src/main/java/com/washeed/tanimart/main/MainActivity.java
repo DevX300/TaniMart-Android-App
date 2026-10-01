@@ -9,11 +9,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.washeed.tanimart.Fragments.CartFragment;
-import com.washeed.tanimart.Fragments.CategoryFragment;
-import com.washeed.tanimart.Fragments.HomeFragment;
-import com.washeed.tanimart.Fragments.MyOrderFragment;
-import com.washeed.tanimart.Fragments.ProfileFragment;
+import com.washeed.tanimart.fragments.CartFragment;
+import com.washeed.tanimart.fragments.CategoryFragment;
+import com.washeed.tanimart.fragments.HomeFragment;
+import com.washeed.tanimart.fragments.MyOrderFragment;
+import com.washeed.tanimart.fragments.ProfileFragment;
 import com.washeed.tanimart.R;
 
 public class MainActivity extends AppCompatActivity {
