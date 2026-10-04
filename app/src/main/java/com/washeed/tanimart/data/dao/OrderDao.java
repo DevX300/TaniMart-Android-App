@@ -26,8 +26,8 @@ public interface OrderDao {
     @Query("SELECT * FROM orders")
     List<Order> getAllOrders();
 
-    @Query("SELECT * FROM orders WHERE orderID = :orderID")
-    Order getOrderById(int orderID);
+    @Query("SELECT * FROM orders WHERE orderID = :orderID AND userID = :userID")
+    Order getOrderByIds(int orderID, int userID);
 
     @Query("SELECT * FROM orders WHERE userID = :userID")
     List<Order> getOrdersByUser(int userID);

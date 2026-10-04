@@ -35,6 +35,4 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE userEmail = :email AND userPass = :password LIMIT 1")
     User login(String email, String password);
 
-    @Query("DELETE FROM user")
-    void deleteAll();
 }
