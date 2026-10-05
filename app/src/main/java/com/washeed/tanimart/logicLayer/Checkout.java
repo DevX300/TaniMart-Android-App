@@ -1,4 +1,6 @@
-package com.washeed.tanimart.data.Entities;
+package com.washeed.tanimart.logicLayer;
+
+import com.washeed.tanimart.data.entities.Cart;
 
 import java.util.List;
 

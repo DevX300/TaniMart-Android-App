@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.washeed.tanimart.R;
-import com.washeed.tanimart.main.MainActivity;
+//import com.washeed.tanimart.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton=findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, InsertDataActivity.class));
         });
     }
 }

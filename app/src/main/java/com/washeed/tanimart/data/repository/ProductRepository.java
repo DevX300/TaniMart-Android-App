@@ -1,8 +1,8 @@
 package com.washeed.tanimart.data.repository;
 
-import com.washeed.tanimart.data.Entities.Category;
-import com.washeed.tanimart.data.Entities.Price;
-import com.washeed.tanimart.data.Entities.Product;
+import com.washeed.tanimart.data.entities.Category;
+import com.washeed.tanimart.data.entities.Price;
+import com.washeed.tanimart.data.entities.Product;
 import com.washeed.tanimart.data.dao.CategoryDao;
 import com.washeed.tanimart.data.dao.PriceDao;
 import com.washeed.tanimart.data.dao.ProductDao;
@@ -21,8 +21,8 @@ public class ProductRepository {
     }
 
     //--------------Product Logic----------------
-    public void productInsert(Product product){
-        productDao.insert(product);
+    public long productInsert(Product product){
+        return productDao.insert(product);
     }
     public void productUpdate(Product product){
         productDao.update(product);
@@ -44,8 +44,8 @@ public class ProductRepository {
     }
     //----------Category Logic------------
 
-    public void categoryInsert(Category category){
-       categoryDao.insert(category);
+    public long categoryInsert(Category category){
+        return categoryDao.insert(category);
     }
     public void categoryUpdate(Category category){
         categoryDao.update(category);
@@ -61,8 +61,8 @@ public class ProductRepository {
     }
     //-------------Price Logic------------
 
-    public void priceInsert(Price price){
-        priceDao.insert(price);
+    public long priceInsert(Price price){
+        return priceDao.insert(price);
     }
     public void priceUpdate(Price price){
         priceDao.update(price);

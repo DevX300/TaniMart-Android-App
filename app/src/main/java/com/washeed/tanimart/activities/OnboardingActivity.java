@@ -24,7 +24,8 @@ public class OnboardingActivity extends AppCompatActivity {
 //        });
         logIn = findViewById(R.id.onboarding_button);
         logIn.setOnClickListener(v -> {
-            startActivity(new Intent(this, LoginActivity.class));
+//            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, InsertDataActivity.class));
             finish();
         });
     }

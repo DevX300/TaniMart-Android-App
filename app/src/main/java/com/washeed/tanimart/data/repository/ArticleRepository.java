@@ -1,6 +1,6 @@
 package com.washeed.tanimart.data.repository;
 
-import com.washeed.tanimart.data.Entities.Article;
+import com.washeed.tanimart.data.entities.Article;
 import com.washeed.tanimart.data.dao.ArticleDao;
 
 import java.util.List;
@@ -15,8 +15,8 @@ public class ArticleRepository {
 
     //---------Article Logic--------------------
 
-    public void articleInsert(Article article){
-        articleDao.insert(article);
+    public long articleInsert(Article article){
+        return articleDao.insert(article);
     }
     public void articleUpdate(Article article){
         articleDao.update(article);
@@ -31,4 +31,7 @@ public class ArticleRepository {
         return articleDao.getArticleById(articleId);
     }
 
+    public Article getArticleById(int articleID) {
+        return articleDao.getArticleById(articleID);
+    }
 }

@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.washeed.tanimart.data.Entities.*;
+import com.washeed.tanimart.data.entities.*;
 import com.washeed.tanimart.data.dao.*;
 
 @Database(entities = {
@@ -16,6 +16,7 @@ import com.washeed.tanimart.data.dao.*;
         Price.class,
         Cart.class,
         Order.class,
+        OrderItem.class,
         Track.class,
         PromoReward.class,
         UserPromo.class,
@@ -28,6 +29,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PriceDao priceDao();
     public abstract CartDao cartDao();
     public abstract OrderDao orderDao();
+    public abstract OrderItemDao orderItemDao();
     public abstract TrackDao trackDao();
     public abstract PromoRewardDao promoRewardDao();
     public abstract UserPromoDao userPromoDao();

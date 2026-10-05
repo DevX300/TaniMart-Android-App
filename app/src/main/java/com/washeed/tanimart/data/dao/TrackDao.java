@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.washeed.tanimart.data.Entities.Track;
+import com.washeed.tanimart.data.entities.Track;
 
 @Dao
 public interface TrackDao {

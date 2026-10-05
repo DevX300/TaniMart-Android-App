@@ -1,7 +1,7 @@
 package com.washeed.tanimart.data.repository;
 
-import com.washeed.tanimart.data.Entities.User;
 import com.washeed.tanimart.data.dao.UserDao;
+import com.washeed.tanimart.data.entities.User;
 
 public class UserRepository {
     UserDao userDao;
@@ -12,8 +12,8 @@ public class UserRepository {
 
     //-------------User Logic--------------
 
-    public void userInsert(User user){
-        userDao.insert(user);
+    public long userInsert(User user){
+        return userDao.insert(user);
     }
     public void userUpdate(User user){
         userDao.update(user);
@@ -24,6 +24,8 @@ public class UserRepository {
     public User userLogin(String email, String password){
         return userDao.login(email, password);
     }
-
+    public User getUserById(int userID){
+        return userDao.getUserById(userID);
+    }
 
 }

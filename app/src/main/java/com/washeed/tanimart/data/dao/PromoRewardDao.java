@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.washeed.tanimart.data.Entities.PromoReward;
+import com.washeed.tanimart.data.entities.PromoReward;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.washeed.tanimart.data.Entities.Category;
+import com.washeed.tanimart.data.entities.Category;
 
 import java.util.List;
 

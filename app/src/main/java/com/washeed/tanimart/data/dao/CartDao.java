@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.washeed.tanimart.data.Entities.Cart;
+import com.washeed.tanimart.data.entities.Cart;
 
 import java.util.List;
 
@@ -28,6 +28,9 @@ public interface CartDao {
 
     @Query("SELECT * FROM cart WHERE cartID = :cartID AND userID = :userID")
     Cart getCartByIds(int cartID, int userID);
+
+    @Query("SELECT * FROM cart WHERE cartID = :cartID")
+    Cart getCartById(int cartID);
 
     @Query("SELECT * FROM cart WHERE userID = :userID")
     List<Cart> getCartsByUser(int userID);

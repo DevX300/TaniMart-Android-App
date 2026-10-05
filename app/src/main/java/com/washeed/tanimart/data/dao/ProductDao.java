@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.washeed.tanimart.data.Entities.Product;
+import com.washeed.tanimart.data.entities.Product;
 
 import java.util.List;
 
@@ -37,4 +37,9 @@ public interface ProductDao {
 
     @Query("DELETE FROM product")
     void deleteAll();
+
+    //special product discount
+    @Query("SELECT * FROM product WHERE categoryID IN ('1', '2')")
+    List<Product> getDiscountedProducts();
+
 }

@@ -1,7 +1,7 @@
 package com.washeed.tanimart.data.repository;
 
-import com.washeed.tanimart.data.Entities.PromoReward;
-import com.washeed.tanimart.data.Entities.UserPromo;
+import com.washeed.tanimart.data.entities.PromoReward;
+import com.washeed.tanimart.data.entities.UserPromo;
 import com.washeed.tanimart.data.dao.PromoRewardDao;
 import com.washeed.tanimart.data.dao.UserPromoDao;
 
@@ -19,8 +19,8 @@ public class PromoRepository {
 
     //---------------PromoReward Logic----------------------
 
-    public void promoInsert(PromoReward promoReward){
-        promoRewardDao.insert(promoReward);
+    public long promoInsert(PromoReward promoReward){
+        return promoRewardDao.insert(promoReward);
     }
     public void promoUpdate(PromoReward promoReward){
         promoRewardDao.update(promoReward);

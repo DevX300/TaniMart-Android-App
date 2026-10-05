@@ -1,4 +1,4 @@
-package com.washeed.tanimart.data.Entities;
+package com.washeed.tanimart.data.entities;
 
 
 import androidx.room.Entity;

@@ -1,8 +1,8 @@
 package com.washeed.tanimart.data.repository;
 
-import com.washeed.tanimart.data.Entities.Order;
-import com.washeed.tanimart.data.Entities.OrderItem;
-import com.washeed.tanimart.data.Entities.Track;
+import com.washeed.tanimart.data.entities.Order;
+import com.washeed.tanimart.data.entities.OrderItem;
+import com.washeed.tanimart.data.entities.Track;
 import com.washeed.tanimart.data.dao.OrderDao;
 import com.washeed.tanimart.data.dao.OrderItemDao;
 import com.washeed.tanimart.data.dao.TrackDao;
@@ -22,8 +22,8 @@ public class OrderRepository {
 
     //----------------Order logic--------------------------------
 
-    public void orderInsert(Order order){
-        orderDao.insert(order);
+    public long orderInsert(Order order){
+        return orderDao.insert(order);
     }
     public void orderUpdate(Order order){
         orderDao.update(order);
@@ -41,8 +41,8 @@ public class OrderRepository {
 
     //---------------Order Item Logic-------------------------
 
-    public void orderItemInsert(OrderItem orderItem){
-        orderItemDao.insert(orderItem);
+    public long orderItemInsert(OrderItem orderItem){
+        return orderItemDao.insert(orderItem);
     }
     public void orderItemUpdate(OrderItem orderItem){
         orderItemDao.update(orderItem);
@@ -62,8 +62,8 @@ public class OrderRepository {
     } //gets single orderItem for 1 product
 
     //-------------------Track Logic---------------------------
-    public void trackInsert(Track track){
-        trackDao.insert(track);
+    public long trackInsert(Track track){
+        return trackDao.insert(track);
     }   //automatic insert when order created
     public void trackDelete(Track track){
         trackDao.delete(track);
@@ -71,4 +71,12 @@ public class OrderRepository {
     public Track getTrackByOrder(int orderID){
         return trackDao.getTrackByOrder(orderID);
     }  // gets the track of a specific order
+
+    public Order getOrderById(int orderID) {
+        return orderDao.getOrderById(orderID);
+    }
+
+    public Track getTrackById(int trackID) {
+        return trackDao.getTrackById(trackID);
+    }
 }

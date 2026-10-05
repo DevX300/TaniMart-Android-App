@@ -1,6 +1,6 @@
 package com.washeed.tanimart.data.repository;
 
-import com.washeed.tanimart.data.Entities.Cart;
+import com.washeed.tanimart.data.entities.Cart;
 import com.washeed.tanimart.data.dao.CartDao;
 
 import java.util.List;
@@ -12,8 +12,8 @@ public class CartRepository {
         this.cartDao = cartDao;
     }
     //----------Cart logic--------------
-    public void cartInsert(Cart cart){
-        cartDao.insert(cart);
+    public long cartInsert(Cart cart){
+        return cartDao.insert(cart);
     }
     public void cartUpdate(Cart cart){
         cartDao.update(cart);
@@ -31,5 +31,7 @@ public class CartRepository {
         cartDao.deleteUserCart(userID);
     } //deletes the cart of a user
 
-
+    public Cart getCartById(int cartID){
+        return cartDao.getCartById(cartID);
+    }
 }

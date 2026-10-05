@@ -64,6 +64,10 @@
             android:exported="false"
             android:label="@string/title_activity_login2"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.InsertDataActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest> <!-- -onboarding activity will be on the first launched so exported set to true -->
