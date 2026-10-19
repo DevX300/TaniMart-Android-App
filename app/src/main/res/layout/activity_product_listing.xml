@@ -6,5 +6,184 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ProductListingActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/white"
+            android:id="@+id/frame">
 
+            <LinearLayout
+                android:id="@+id/topBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="45dp">
+                <!--Text layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+                    <!--Back Button-->
+                    <ImageView
+                        android:id="@+id/productListingBack"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/outline_chevron_backward_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                    <!--Title-->
+                    <TextView
+                        android:id="@+id/productListingName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/products"
+                        android:textColor="#1A1A1A"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Devider -->
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+
+                <!--Search bar-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="2dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal">
+                        <!-- SearchBar-->
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/searchBarProductListing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingStart="15dp"
+                            android:paddingEnd="0dp"
+                            android:background="@drawable/search_bg"
+                            android:iconifiedByDefault="false"
+                            android:queryHint="Search products..."
+                            android:layout_weight="1"/>
+                        <!-- Filter Toggle-->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/filterProductListing"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:backgroundTint="#F3F4F6"
+                            app:cornerRadius="10dp"
+                            app:icon="@drawable/outline_filter_alt_24"
+                            app:iconSize="25dp"
+                            app:iconTint="#6B7280"
+                            app:iconGravity="textStart"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"/>
+                </LinearLayout>
+
+                <!--Hidden Filter Layout-->
+                <LinearLayout
+                    android:id="@+id/filterLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fixedFilterButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginVertical="5dp">
+                        <!-- Sort Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/sortProductListing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:text="@string/sort"
+                            android:textSize="16sp"
+                            android:textColor="#6B7280"
+                            app:backgroundTint="#F3F4F6"
+                            app:icon="@drawable/outline_arrow_downward_alt_24"
+                            app:iconTint="#000000"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:cornerRadius="10dp"
+                            android:layout_marginHorizontal="5dp"/>
+                    </LinearLayout>
+                    <com.google.android.material.slider.RangeSlider
+                        android:id="@+id/priceRangeSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="10000"
+                        app:values="@array/price_range_values"
+                        app:thumbColor="@color/black"
+                        app:thumbTint="@color/black"
+                        app:trackColorActive="#F3F4F6"
+                        app:trackColorInactive="#F3F4F6"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:gravity="end">
+
+                        <EditText
+                            android:id="@+id/minPriceInput"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:hint="Min price"
+                            android:inputType="number"
+                            android:text="0"
+                            android:layout_marginRight="100dp"/>
+                        <EditText
+                            android:id="@+id/maxPriceInput"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:hint="Max price"
+                            android:inputType="number"
+                            android:text="10000"
+                            android:layout_marginLeft="100dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+        <!--Product List-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productListingView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginHorizontal="16dp"/>
+
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.washeed.tanimart.data.dao;
 
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -30,7 +31,7 @@ public interface PriceDao {
     Price getPriceById(int priceID);
 
     @Query("SELECT * FROM price WHERE productID = :productID")
-    List<Price> getPricesByProduct(int productID);
+    LiveData<List<Price>> getPricesByProduct(int productID);
 
     @Query("DELETE FROM price")
     void deleteAll();

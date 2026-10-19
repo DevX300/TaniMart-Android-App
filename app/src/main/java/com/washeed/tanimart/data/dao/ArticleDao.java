@@ -1,6 +1,7 @@
 package com.washeed.tanimart.data.dao;
 
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -24,7 +25,10 @@ public interface ArticleDao {
     void delete(Article article);
 
     @Query("SELECT * FROM article")
-    List<Article> getAllArticles();
+    LiveData<List<Article>> getAllArticles();
+
+    @Query("SELECT articleID FROM article")
+    List<Integer> getAllArticleByIds();
 
     @Query("SELECT * FROM article WHERE articleID = :articleID")
     Article getArticleById(int articleID);

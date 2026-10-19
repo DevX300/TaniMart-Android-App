@@ -9,11 +9,13 @@ public class Category {
     @PrimaryKey(autoGenerate = true)
     private int categoryID;
     private String categoryName;
-    private int categoryIconID;
+    private String categoryIcon;
+    private String filters;
 
-    public Category(String categoryName, int categoryIconID) {
+    public Category(String categoryName, String categoryIcon, String filters) {
         this.categoryName = categoryName;
-        this.categoryIconID = categoryIconID;
+        this.categoryIcon = categoryIcon;
+        this.filters = filters;
     }
 
     public int getCategoryID() {
@@ -32,11 +34,19 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public int getCategoryIconID() {
-        return categoryIconID;
+    public String getCategoryIcon() {
+        return categoryIcon;
     }
 
-    public void setCategoryIconID(int categoryIconID) {
-        this.categoryIconID = categoryIconID;
+    public void setCategoryIconID(String categoryIcon) {
+        this.categoryIcon = categoryIcon;
+    }
+
+    public String getFilters() {
+        return filters;
+    }
+
+    public void setFilters(String filters) {
+        this.filters = filters;
     }
 }

@@ -1,5 +1,7 @@
 package com.washeed.tanimart.data.repository;
 
+import androidx.lifecycle.LiveData;
+
 import com.washeed.tanimart.data.entities.Article;
 import com.washeed.tanimart.data.dao.ArticleDao;
 
@@ -24,13 +26,16 @@ public class ArticleRepository {
     public void articleDelete(Article article){
         articleDao.delete(article);
     }
-    public List<Article> articleList(){
+    public LiveData<List<Article>> articleList(){
         return articleDao.getAllArticles();
     }
     public Article getArticle(int articleId){
         return articleDao.getArticleById(articleId);
     }
 
+    public List<Integer> getAllArticleByIds(){
+        return articleDao.getAllArticleByIds();
+    }
     public Article getArticleById(int articleID) {
         return articleDao.getArticleById(articleID);
     }

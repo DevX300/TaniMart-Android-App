@@ -11,16 +11,23 @@ public class Product  {
     private int categoryID;
     private String productName;
     private String description;
-    private String specification;
-    private int productImageID;
+    private String productImageID;
+    private float rating;
+    private int totalReviews;
+    private int soldCount;
+    private int discountPercentage;
 
-    public Product(int categoryID, String productName, String description, String specification, int productImageID) {
+    public Product(int categoryID, String productName, String description, String productImageID, float rating, int totalReviews, int soldCount, int discountPercentage) {
         this.categoryID = categoryID;
         this.productName = productName;
         this.description = description;
-        this.specification = specification;
         this.productImageID = productImageID;
+        this.rating = rating;
+        this.totalReviews = totalReviews;
+        this.soldCount = soldCount;
+        this.discountPercentage= discountPercentage;
     }
+
 
     public int getProductID() {
         return productID;
@@ -54,19 +61,43 @@ public class Product  {
         this.description = description;
     }
 
-    public String getSpecification() {
-        return specification;
-    }
-
-    public void setSpecification(String specification) {
-        this.specification = specification;
-    }
-
-    public int getProductImageID() {
+    public String getProductImageID() {
         return productImageID;
     }
 
-    public void setProductImageID(int productImageID) {
+    public void setProductImageID(String productImageID) {
         this.productImageID = productImageID;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public int getTotalReviews() {
+        return totalReviews;
+    }
+
+    public void setTotalReviews(int totalReviews) {
+        this.totalReviews = totalReviews;
+    }
+
+    public int getSoldCount() {
+        return soldCount;
+    }
+
+    public void setSoldCount(int soldCount) {
+        this.soldCount = soldCount;
+    }
+
+    public int getDiscountPercentage() {
+        return discountPercentage;
+    }
+
+    public void setDiscountPercentage(int discountPercentage) {
+        this.discountPercentage = discountPercentage;
     }
 }

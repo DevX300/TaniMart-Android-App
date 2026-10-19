@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Icon box -->
+    <TextView
+        android:id="@+id/homeCategoryEmoji"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:text="@string/placeholderCategory"
+        android:textSize="25sp"
+        android:background="@drawable/icon_box_bg"
+        android:foreground="?attr/selectableItemBackground"/>
+    <!-- Label -->
+    <TextView
+        android:id="@+id/homeCategoryLabel"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/label"
+        android:textSize="13sp"
+        android:textColor="#374151"
+        android:gravity="center"/>
+</LinearLayout>

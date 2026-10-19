@@ -8,6 +8,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.washeed.tanimart.R;
+import com.washeed.tanimart.main.MainActivity;
 
 public class OnboardingActivity extends AppCompatActivity {
 
@@ -24,8 +25,8 @@ public class OnboardingActivity extends AppCompatActivity {
 //        });
         logIn = findViewById(R.id.onboarding_button);
         logIn.setOnClickListener(v -> {
-//            startActivity(new Intent(this, LoginActivity.class));
-            startActivity(new Intent(this, InsertDataActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
+//            startActivity(new Intent(this, InsertDataActivity.class));
             finish();
         });
     }

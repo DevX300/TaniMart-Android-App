@@ -1,9 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="16dp">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <!--Main Layout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <!--Top bar-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <FrameLayout
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/circle_icon_bg2">
+                    <ImageView
+                        android:id="@+id/home_location"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/location_on_24px"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#9CA3AF"
+                            android:text="Delivery Location"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="#1A1A1A"
+                            android:textStyle="bold"
+                            android:text="Kab. Karawang, West Java">
 
+                        </TextView>
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/getLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/outline_chevron_forward_24"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="9dp"/>
+                </LinearLayout>
+                <FrameLayout
+                    android:id="@+id/home_notification"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/circle_icon_bg"
+                    android:backgroundTint="#F3F4F6">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/notifications_unread_24px"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!--Search bar-->
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/homeSearch"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="0dp"
+                android:background="@drawable/search_bg"
+                android:layout_marginTop="20dp"/>
+            <!--Special Discount Box-->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:cardCornerRadius="18dp"
+                app:strokeWidth="0dp"
+                app:strokeColor="@android:color/transparent"
+                android:layout_marginTop="20dp">
+                <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <!-- Background image -->
+                <ImageView
+                    android:src="@drawable/farmer_banner"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <!-- Gradient overlay -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/left_gradient"/>
+                <!-- Text + Button -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Planting Season Special"
+                        android:textColor="#A5D6A7"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Discount up to 40% Fertilizer &amp; Seeds"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp"/>
+
+                    <Button
+                        android:id="@+id/shopNowDiscountButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shop Now"
+                        android:backgroundTint="#FFA726"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginTop="6dp"/>
+                </LinearLayout>
+            </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <!--Category Section-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A1A"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/homeViewCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/view_all"
+                    android:textColor="#2E7D32"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"/>
+
+            <!--Promo Special-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Promo Special"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A1A"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/homeViewPromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/view_all"
+                    android:textColor="#2E7D32"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+            <com.google.android.material.card.MaterialCardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="15dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_voucher_gradient">
+                    <!-- Decorative circles -->
+                    <View
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginEnd="-10dp"
+                        android:layout_marginTop="-10dp"
+                        android:background="@drawable/circle_overlay_large"/>
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-25dp"
+                        android:background="@drawable/circle_overlay_small"/>
+
+                    <!-- Content -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="New Member Voucher"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Save 25,000"
+                                android:textColor="#FFFFFF"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:layout_marginVertical="4dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Min. spend Rp 150,000"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+                        <Button
+                            android:id="@+id/btnClaimVoucher"
+                            android:layout_width="85dp"
+                            android:layout_height="42dp"
+                            android:text="Take"
+                            android:textAllCaps="false"
+                            android:textColor="#FF8F00"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:background="@drawable/bg_voucher_button"
+                            app:backgroundTint="@null"/>
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!--Top Selling Product-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Best-Selling Products"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A1A"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/homeViewTopProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/view_all"
+                    android:textColor="#2E7D32"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bestSellingListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"/>
+
+            <!--farming tips-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Farming Tips"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A1A"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/homeViewArticle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/view_all"
+                    android:textColor="#2E7D32"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeArticleListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"/>
+            <!--Admin Test Button-->
+            <Button
+                android:id="@+id/categoryPopulateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category"
+                android:layout_marginTop="50dp"/>
+            <Button
+                android:id="@+id/articlePopulateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/article"/>
+            <Button
+                android:id="@+id/productPopulateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -14,6 +14,7 @@ import com.washeed.tanimart.data.dao.*;
         Category.class,
         Product.class,
         Price.class,
+        ProductSpecification.class,
         Cart.class,
         Order.class,
         OrderItem.class,
@@ -27,6 +28,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CategoryDao categoryDao();
     public abstract ProductDao productDao();
     public abstract PriceDao priceDao();
+    public abstract ProductSpecificationDao productSpecificationDao();
     public abstract CartDao cartDao();
     public abstract OrderDao orderDao();
     public abstract OrderItemDao orderItemDao();
@@ -40,7 +42,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "app_database").build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "app_database").fallbackToDestructiveMigration().build();
                 }
             }
         }

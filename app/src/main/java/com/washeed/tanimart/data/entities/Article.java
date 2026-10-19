@@ -12,13 +12,34 @@ public class Article {
     private String articleName;
     private String description;
     private String articleCategory;
-    private int articlePictureID;
+    private String articlePublishDate;
+    private float articleViews;
 
-    public Article(String articleName, String description, String articleCategory, int articlePictureID) {
+    private String articlePictureID;
+
+    public Article(String articleName, String description, String articleCategory, String articlePublishDate, float articleViews, String articlePictureID) {
         this.articleName = articleName;
         this.description = description;
         this.articleCategory = articleCategory;
+        this.articlePublishDate = articlePublishDate;
+        this.articleViews = articleViews;
         this.articlePictureID = articlePictureID;
+    }
+
+    public String getArticlePublishDate() {
+        return articlePublishDate;
+    }
+
+    public void setArticlePublishDate(String articlePublishDate) {
+        this.articlePublishDate = articlePublishDate;
+    }
+
+    public float getArticleViews() {
+        return articleViews;
+    }
+
+    public void setArticleViews(float articleViews) {
+        this.articleViews = articleViews;
     }
 
     public int getArticleID() {
@@ -53,11 +74,11 @@ public class Article {
         this.articleCategory = articleCategory;
     }
 
-    public int getArticlePictureID() {
+    public String getArticlePictureID() {
         return articlePictureID;
     }
 
-    public void setArticlePictureID(int articlePictureID) {
+    public void setArticlePictureID(String articlePictureID) {
         this.articlePictureID = articlePictureID;
     }
 

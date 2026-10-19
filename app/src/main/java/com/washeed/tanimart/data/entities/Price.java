@@ -12,12 +12,22 @@ public class Price {
     private int stock;
     private int totalPrice;
 
+
+
+
     public Price(int productID, int weightKG, int stock, int totalPrice) {
         this.productID = productID;
         this.weightKG = weightKG;
         this.stock = stock;
         this.totalPrice = totalPrice;
     }
+
+//    public Price(int productID, int weightKG, int stock, int totalPrice) {
+//        this.productID = productID;
+//        this.weightKG = weightKG;
+//        this.stock = stock;
+//        this.totalPrice = totalPrice;
+//    }
 
     public int getPriceID() {
         return priceID;
