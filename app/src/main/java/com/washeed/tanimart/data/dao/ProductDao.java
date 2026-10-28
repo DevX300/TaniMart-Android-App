@@ -8,7 +8,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.washeed.tanimart.data.ProductCard;
+import com.washeed.tanimart.data.models.ProductCard;
 import com.washeed.tanimart.data.entities.Product;
 
 import java.util.List;
@@ -30,6 +30,13 @@ public interface ProductDao {
 
     @Query("SELECT * FROM product WHERE productID = :productID")
     LiveData<Product> getProductById(int productID);
+
+    @Query("SELECT * FROM product WHERE productID = :productID")
+    Product getProductByID(int productID);
+
+
+    @Query("SELECT * FROM Product WHERE productID = :productID")
+    Product getUserProductById(int productID);
 
 //    @Query("SELECT * FROM product WHERE categoryID = :categoryID")
 //    LiveData<List<ProductCard>> getProductsByCategory(int categoryID);

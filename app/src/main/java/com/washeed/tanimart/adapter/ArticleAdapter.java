@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.washeed.tanimart.R;
-import com.washeed.tanimart.data.ProductCard;
 import com.washeed.tanimart.data.entities.Article;
 
 import java.util.List;

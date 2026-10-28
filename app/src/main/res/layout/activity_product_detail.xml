@@ -32,7 +32,7 @@
                     android:scaleType="centerCrop"/>
                 <!--Back Button-->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/backButtonProductDetail"
+                    android:id="@+id/productDetailBack"
                     android:layout_width="37dp"
                     android:layout_height="37dp"
                     android:insetTop="0dp"
@@ -45,6 +45,24 @@
                     app:iconGravity="textStart"
                     app:iconPadding="0dp"
                     android:translationX="15dp"
+                    android:translationY="45dp"
+                    android:translationZ="10dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/productToCart"
+                    android:layout_width="57dp"
+                    android:layout_height="57dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="50dp"
+                    app:icon="@drawable/cart_svg_com"
+                    app:iconTint="@android:color/black"
+                    app:iconSize="30dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    android:layout_gravity="end"
+                    android:translationX="-15dp"
                     android:translationY="45dp"
                     android:translationZ="10dp"/>
                 <!-- Discount Pill Show-->
@@ -241,6 +259,74 @@
                     android:layout_height="wrap_content"
                     android:visibility="gone"
                     android:layout_marginHorizontal="5dp"/>
+            </LinearLayout>
+            <!--Quantity adder -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_margin="16dp">
+                <!--Subtotal Text-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity"
+                    android:textColor="@color/tani_black"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <!--Product adder -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    app:cardCornerRadius="12dp"
+                    app:strokeColor="#E5E7EB"
+                    app:strokeWidth="1dp"
+                    app:cardElevation="0dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="@android:color/white">
+                        <!--minus -->
+                        <TextView
+                            android:id="@+id/minusButton"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="−"
+                            android:textSize="18sp"
+                            android:textColor="@color/tani_green"/>
+                        <!--Quantity -->
+                        <TextView
+                            android:id="@+id/cartQuantity"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:textColor="@color/tani_black"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textStyle="bold"/>
+                        <!--plus -->
+                        <TextView
+                            android:id="@+id/plusButton"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="+"
+                            android:textSize="18sp"
+                            android:textColor="@color/tani_green"/>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

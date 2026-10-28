@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.washeed.tanimart.R;
 import com.washeed.tanimart.activities.ProductDetailActivity;
+import com.washeed.tanimart.activities.ProductListingActivity;
 import com.washeed.tanimart.adapter.ArticleAdapter;
 import com.washeed.tanimart.adapter.CategoryAdapter;
 import com.washeed.tanimart.adapter.ProductAdapter;
@@ -38,7 +39,13 @@ public class HomeFragment extends Fragment {
         //------------------------------------------------
         RecyclerView categoryRecyclerView = view.findViewById(R.id.categoryListView);
         categoryRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 4));
-        CategoryAdapter categoryAdapter = new CategoryAdapter(new ArrayList<>());
+        CategoryAdapter categoryAdapter = new CategoryAdapter((category -> {
+            Intent intent = new Intent(requireContext(), ProductListingActivity.class);
+            intent.putExtra("categoryId", category.getCategoryID());
+            intent.putExtra("categoryName", category.getCategoryName());
+            intent.putExtra("filters", category.getFilters());
+            startActivity(intent);
+        }));
         categoryAdapter.setDisplayLimit(8);
         categoryRecyclerView.setAdapter(categoryAdapter);
         ProductRepository productsRepository = new ProductRepository(
@@ -47,7 +54,6 @@ public class HomeFragment extends Fragment {
                 AppDatabase.getDatabase(requireContext()).priceDao(),
                 AppDatabase.getDatabase(requireContext()).productSpecificationDao()
         );
-        //            categoryAdapter.setCategories(categories.subList(0,8));
         productsRepository.categoryList().observe(getViewLifecycleOwner(), categoryAdapter::setCategories);
 
         //------------------------------------------------
@@ -60,15 +66,9 @@ public class HomeFragment extends Fragment {
             showProduct.putExtra("productID", productInfo.getProductID());
             startActivity(showProduct);
         });
-        bestSellingAdapter.setDisplayLimit(6);
+        bestSellingAdapter.setDisplayLimit(4);
         bestSellingRecyclerView.setAdapter(bestSellingAdapter);
-
         productsRepository.discountedProductCards().observe(getViewLifecycleOwner(), bestSellingAdapter::setProduct);
-
-//        productsRepository.discountedProductList().observe(
-//                getViewLifecycleOwner(),
-//                discountedAdapter::setProduct
-//        );
 
         //------------------------------------------------
         //----------------Article Tips Section------------
@@ -76,16 +76,13 @@ public class HomeFragment extends Fragment {
         RecyclerView articleTipsRecyclerView = view.findViewById(R.id.homeArticleListView);
         articleTipsRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         ArticleAdapter articleAdapter = new ArticleAdapter(new ArrayList<>());
-        articleAdapter.setDisplayLimit(4);
+        articleAdapter.setDisplayLimit(2);
         articleTipsRecyclerView.setAdapter(articleAdapter);
         ArticleRepository articleRepository = new ArticleRepository(AppDatabase.getDatabase(requireContext()).articleDao());
-        //            articleAdapter.setArticles(products.subList(0,4));
         articleRepository.articleList().observe(getViewLifecycleOwner(), articleAdapter::setArticles);
-//        adminPanelButton= view.findViewById(R.id.adminPanelButton);
-//        adminPanelButton.setOnClickListener(v -> {
-//            startActivity(new Intent(getContext(), InsertDataActivity.class));
-//        });
 
+
+        //-------------home fragment-----------------------------------
         homeViewCategory= view.findViewById(R.id.homeViewCategory);
         homeViewCategory.setOnClickListener(v -> {
             requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new CategoryFragment()).addToBackStack(null).commit();
@@ -93,28 +90,22 @@ public class HomeFragment extends Fragment {
 
 
 
+        //Database populator use only when new app is installed
+//        categoryAddButton= view.findViewById(R.id.categoryPopulateButton);
+//        productAddButton= view.findViewById(R.id.productPopulateButton);
+//        articleAddButton= view.findViewById(R.id.articlePopulateButton);
 
-
-
-        categoryAddButton= view.findViewById(R.id.categoryPopulateButton);
-        productAddButton= view.findViewById(R.id.productPopulateButton);
-        articleAddButton= view.findViewById(R.id.articlePopulateButton);
-
-
-        categoryAddButton.setOnClickListener(v -> {
-            DatabasePopulator.populate(DatabasePopulator.PopulateType.CATEGORY,productsRepository,articleRepository);
-        });
-
-        productAddButton.setOnClickListener(v -> {
-            DatabasePopulator.populate(DatabasePopulator.PopulateType.PRODUCT, productsRepository, articleRepository);
-        });
-
-        articleAddButton.setOnClickListener(v -> {
-            DatabasePopulator.populate(DatabasePopulator.PopulateType.ARTICLE,productsRepository,articleRepository);
-        });
-
-
-
+//        categoryAddButton.setOnClickListener(v -> {
+//            DatabasePopulator.populate(DatabasePopulator.PopulateType.CATEGORY,productsRepository,articleRepository);
+//        });
+//
+//        productAddButton.setOnClickListener(v -> {
+//            DatabasePopulator.populate(DatabasePopulator.PopulateType.PRODUCT, productsRepository, articleRepository);
+//        });
+//
+//        articleAddButton.setOnClickListener(v -> {
+//            DatabasePopulator.populate(DatabasePopulator.PopulateType.ARTICLE,productsRepository,articleRepository);
+//        });
         return view;
     }
 }

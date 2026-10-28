@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/specificationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ProductName ProductName x3"
+            android:textColor="@color/tani_dark_grey1"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/specificationValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 170.000"
+            android:textStyle="bold"
+            android:textColor="#374151"
+            android:textSize="15sp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

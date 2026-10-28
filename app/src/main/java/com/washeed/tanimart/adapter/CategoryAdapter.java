@@ -9,21 +9,26 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.washeed.tanimart.R;
-import com.washeed.tanimart.data.ProductCard;
 import com.washeed.tanimart.data.entities.Category;
 
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
     private List<Category> categoryList;
+    public interface OnCategoryClickListener {
+        void onCategoryClick(Category category);
+    }
+    private OnCategoryClickListener listener;
     private int displayLimit = Integer.MAX_VALUE;
     public void setDisplayLimit(int displayLimit) {
         this.displayLimit = displayLimit;
         notifyDataSetChanged();
     }
-    public CategoryAdapter(List<Category> categoryList) {
-        this.categoryList = categoryList;
+
+    public CategoryAdapter(OnCategoryClickListener listener) {
+        this.listener = listener;
     }
+
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,6 +41,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         Category category = categoryList.get(position);
         holder.emoji.setText(category.getCategoryIcon());   // emoji string
         holder.label.setText(category.getCategoryName());   // category name
+
+        holder.itemView.setOnClickListener(v -> {
+            listener.onCategoryClick(category);
+        });
     }
     @Override
     public int getItemCount() {

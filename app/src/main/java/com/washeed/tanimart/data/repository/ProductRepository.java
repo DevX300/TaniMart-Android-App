@@ -3,7 +3,7 @@ package com.washeed.tanimart.data.repository;
 import androidx.lifecycle.LiveData;
 
 import com.washeed.tanimart.data.CategoryWithCount;
-import com.washeed.tanimart.data.ProductCard;
+import com.washeed.tanimart.data.models.ProductCard;
 import com.washeed.tanimart.data.dao.ProductSpecificationDao;
 import com.washeed.tanimart.data.entities.Category;
 import com.washeed.tanimart.data.entities.Price;
@@ -63,6 +63,10 @@ public class ProductRepository {
     public LiveData<Product> getProductById(int productID){
         return productDao.getProductById(productID);
     }
+
+    public Product getProductByID(int productID){
+        return productDao.getProductByID(productID);
+    }
     public List<Product> getAllProducts(){
         return productDao.getAllProducts();
     }
@@ -80,6 +84,9 @@ public class ProductRepository {
         return productDao.searchProductsByCategory(categoryID,keyword);
     }
 
+    public Product getUserProductById(int productID){
+        return productDao.getUserProductById(productID);
+    }
 
     //----------Category Logic------------
 
@@ -100,6 +107,9 @@ public class ProductRepository {
     }
     public Category getCategoryById(int categoryID){
         return categoryDao.getCategoryById(categoryID);
+    }
+    public LiveData<List<CategoryWithCount>> searchCategory(String searchText){
+        return categoryDao.searchCategory(searchText);
     }
 
     public LiveData<List<CategoryWithCount>> getCategoriesWithCount(){

@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.washeed.tanimart.R;
-import com.washeed.tanimart.data.ProductCard;
+import com.washeed.tanimart.data.models.ProductCard;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,6 +27,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public interface OnItemClickListener{
         void onItemClick(ProductCard productCard, int position);
     }
+
+//    public interface OnItemAddToCart{
+//        void onItemAdd();
+//    }
 
     public ProductAdapter(OnItemClickListener listener) {
         this.listener = listener;
@@ -48,7 +52,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list_view, parent, false);
-
         return new ProductViewHolder(view);
     }
 
@@ -87,7 +90,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             holder.cutPriceCard.setVisibility(View.GONE);
             holder.discountPill.setVisibility(View.GONE);
         }
-
         //onItemClick View Products
         holder.showProductDetail.setOnClickListener(v -> {
             int pos = holder.getBindingAdapterPosition();

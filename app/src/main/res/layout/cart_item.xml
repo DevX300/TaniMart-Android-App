@@ -1,0 +1,167 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:strokeColor="#F3F4F6"
+    app:strokeWidth="1dp"
+    android:layout_marginTop="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!--Check box -->
+            <CheckBox
+                android:id="@+id/cartItemCheckbox"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical"
+                android:buttonTint="@color/tani_green"/>
+            <!--Cart Product image -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/cartItemImage"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_marginStart="12dp"
+                android:background="#E5E7EB"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/RoundedImage15"/>
+            <!--Cart Content -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+                <!--Product name -->
+                <TextView
+                    android:id="@+id/cartItemName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ProductName ProductName"
+                    android:textColor="@color/tani_black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:maxLines="2"/>
+                <!--Product weight classification -->
+                <TextView
+                    android:id="@+id/cartItemVariant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Unit"
+                    android:textColor="@color/tani_light_grey"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp"/>
+                <!--Product Base price -->
+                <TextView
+                    android:id="@+id/cartItemPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 120.000"
+                    android:textColor="@color/tani_green"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"/>
+
+            </LinearLayout>
+            <!--Delete Item Bin -->
+            <ImageView
+                android:id="@+id/cartItemDelete"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/sharp_delete_24"
+                app:tint="#EF4444"
+                android:layout_gravity="end|bottom"/>
+
+        </LinearLayout>
+
+        <!-- Bottom Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp">
+            <!--Subtotal Text-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subtotal: "
+                android:textColor="@color/tani_light_grey"
+                android:textSize="15sp"/>
+            <!--Subtotal count-->
+            <TextView
+                android:id="@+id/cartItemSubtotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rp 120.000"
+                android:textColor="#374151"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+            <!--Product adder -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="#E5E7EB"
+                app:strokeWidth="1dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@android:color/white">
+                    <!--minus -->
+                    <TextView
+                        android:id="@+id/minusButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="−"
+                        android:textSize="18sp"
+                        android:textColor="@color/tani_green"/>
+                    <!--Quantity -->
+                    <TextView
+                        android:id="@+id/cartQuantity"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textStyle="bold"/>
+                    <!--plus -->
+                    <TextView
+                        android:id="@+id/plusButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textSize="18sp"
+                        android:textColor="@color/tani_green"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

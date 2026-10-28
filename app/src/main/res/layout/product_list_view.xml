@@ -147,7 +147,17 @@
                         app:iconTint="@android:color/white"
                         app:iconGravity="textStart"
                         app:iconPadding="0dp"
-                        android:layout_gravity="bottom"/>
+                        android:layout_gravity="bottom"
+                        android:visibility="gone"/>
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="Select Options"
+                        android:maxLines="2"
+                        android:textColor="@color/tani_green"
+                        android:visibility="gone"
+                        android:layout_gravity="bottom"
+                        android:textSize="10sp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

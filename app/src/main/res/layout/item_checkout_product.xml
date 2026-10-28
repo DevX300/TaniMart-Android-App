@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="6dp"
+    android:paddingHorizontal="8dp">
+    <!-- Product Image -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/checkoutProductImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:shapeAppearanceOverlay="@style/ProductImageCorners"/>
+    <!-- Product Name and Quantity -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/checkoutProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ProductProductProduct"
+            android:textStyle="bold"
+            android:textColor="#111827"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/checkoutProductQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="x0"
+            android:textColor="#9CA3AF"
+            android:textSize="14sp"/>
+    </LinearLayout>
+    <!-- Product Total Price -->
+    <TextView
+        android:id="@+id/checkoutProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp 000.000"
+        android:textColor="@color/tani_black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:maxLines="1"/>
+
+</LinearLayout>

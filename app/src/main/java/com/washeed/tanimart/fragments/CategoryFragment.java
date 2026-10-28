@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +39,7 @@ public class CategoryFragment extends Fragment {
         RecyclerView categoryRecyclerView = view.findViewById(R.id.categoryListView);
         categoryRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         ProductRepository productsRepository = new ProductRepository(AppDatabase.getDatabase(requireContext()).productDao(),AppDatabase.getDatabase(requireContext()).categoryDao(), AppDatabase.getDatabase(requireContext()).priceDao());
-        categoryScreenAdapter categoryAdapter = new categoryScreenAdapter(new ArrayList<>(), category -> {
+        categoryScreenAdapter categoryAdapter = new categoryScreenAdapter(category -> {
             Intent intent = new Intent(requireContext(), ProductListingActivity.class);
             intent.putExtra("categoryId", category.category.getCategoryID());
             intent.putExtra("categoryName", category.category.getCategoryName());
@@ -47,14 +48,29 @@ public class CategoryFragment extends Fragment {
         });
         categoryRecyclerView.setAdapter(categoryAdapter);
         productsRepository.getCategoriesWithCount().observe(getViewLifecycleOwner(), categoryAdapter::setCategories);
-
-
         categoryBack= view.findViewById(R.id.categoryBack);
         categoryBack.setOnClickListener(v -> {
             requireActivity().getOnBackPressedDispatcher().onBackPressed();
         });
+
+        //---------------------------------------------
+        //----------------Search Categories--------------------
+        //---------------------------------------------
+        SearchView searchBar = view.findViewById(R.id.categorySearch);
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                productsRepository.searchCategory(newText).observe(CategoryFragment.this, categoryAdapter::setCategories);
+                return true;
+            }
+            @Override
+            public boolean onQueryTextSubmit(String query) {return false;}
+        });
+        searchBar.setOnClickListener(v -> {
+            searchBar.setIconified(false);
+            searchBar.requestFocus();
+        });
+
         return view;
     }
-
-
 }

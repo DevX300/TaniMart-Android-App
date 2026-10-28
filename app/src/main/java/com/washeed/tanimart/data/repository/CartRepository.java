@@ -1,7 +1,11 @@
 package com.washeed.tanimart.data.repository;
 
+import androidx.lifecycle.LiveData;
+import androidx.room.Query;
+
 import com.washeed.tanimart.data.entities.Cart;
 import com.washeed.tanimart.data.dao.CartDao;
+import com.washeed.tanimart.data.models.CartItem;
 
 import java.util.List;
 
@@ -34,4 +38,8 @@ public class CartRepository {
     public Cart getCartById(int cartID){
         return cartDao.getCartById(cartID);
     }
+
+//    public LiveData<List<CartItem>> getCartItems(){
+//        return cartDao.getCartItems();
+//    }
 }

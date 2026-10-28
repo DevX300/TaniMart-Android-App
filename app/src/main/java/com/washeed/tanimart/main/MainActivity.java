@@ -1,9 +1,10 @@
 package com.washeed.tanimart.main;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -36,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
-        //main page navbar set
+        //-----------------------------------main page navbar set--------------------------------------------------------
         navBar = findViewById(R.id.nav_bar);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, new HomeFragment()).commit();
@@ -62,11 +62,19 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
-//        binding.bottomNavigationView.setOnApplyWindowInsetsListener { view, insets ->
-//                view.updatePadding(bottom = 0)
-//            insets
-//        }
-
+        handleCartNavigationIntent(getIntent()); //call the intent from any activity to main activity and receives it
+    }
+    private void handleCartNavigationIntent(Intent intent) {  //this navigation only handles the cart fragment
+        if (intent != null && "cart".equals(intent.getStringExtra("open_fragment"))) {
+            navBar.setSelectedItemId(R.id.nav_cart);
+            intent.removeExtra("open_fragment");
+        }
+    }
+    @Override
+    protected void onNewIntent(@NonNull Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleCartNavigationIntent(intent);
     }
 }
 //for main home activity

@@ -1,4 +1,4 @@
-package com.washeed.tanimart.data;
+package com.washeed.tanimart.data.models;
 
 public class ProductCard {
     private int productID;

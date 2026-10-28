@@ -19,8 +19,7 @@ import java.util.List;
 public class categoryScreenAdapter extends RecyclerView.Adapter<categoryScreenAdapter.CategoryViewHolder> {
     private List<CategoryWithCount> categoryList;
     private OnCategoryClickListener listener;
-    public categoryScreenAdapter(List<CategoryWithCount> categoryList, OnCategoryClickListener listener) {
-        this.categoryList = categoryList;
+    public categoryScreenAdapter(OnCategoryClickListener listener) {
         this.listener = listener;
     }
     @NonNull

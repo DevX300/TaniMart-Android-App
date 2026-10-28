@@ -41,4 +41,11 @@ public interface CategoryDao {
     LiveData<List<CategoryWithCount>> getCategoriesWithCount();
 
 
+    @Query("SELECT category.*, COUNT(product.productID) AS productCount FROM category LEFT JOIN product ON category.categoryID = product.categoryID WHERE category.categoryName LIKE '%' || :searchText || '%' GROUP BY category.categoryID ")
+    LiveData<List<CategoryWithCount>> searchCategory(String searchText);
+
+//    @Query("SELECT * FROM category WHERE categoryName LIKE '%' || :searchText || '%'")
+//    LiveData<List<Category>> searchCategory(String searchText);
+
+
 }
